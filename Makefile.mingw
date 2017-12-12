@@ -1,0 +1,46 @@
+####################################################################################################
+# Captuer Makefile
+#
+# I've got no idea how to do all this, but this file works for me. Anyone interested in sorting
+# it out, please do!
+#
+# This project depends on wxMac, libgig and portaudio. 
+#
+####################################################################################################
+## What the wxwindows demos do
+# g++ -o bombs_bombs.o -D__WXMSW__ -I./ -DWX_PRECOMP -I/c/wxWidgets-2.8.0/static-build/lib/wx/include/msw-ansi-release-static-2.8 -I../../../include -mthreads -Wall -Wundef -Wno-ctor-dtor-privacy -02 -fno-strict-aliasing bombs.cpp
+# etc for other .o's
+# g++ -o bombs.exe bombs.o bombs_bombs.o ... -mthreads -L/c/wxWidgets-2.8.0/static-build/lib -mwindows -lrpcrt4 -loleaut32 -lole32 -luuid -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lctl3d32 -ladvapi32 -lwsock32 -lgdi32 -lwx_msw-2.8 -lwxtiff-2.8 -lwxjpeg-2.8 -lwxpng-2.8 -lwxzlib-2.8 -lwxregex-2.8 -lwxexpat-2.8 -mthreads -lrpcrt4 -loleaut32 -lole32 -lluid -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lctl3d32 -ladvapi32 -lwsock32 -lgdi32
+
+
+# Here's a few things you need to change
+
+# for the include paths
+LIBGIG_HOME=../lib/src/libgig
+PORTAUDIO_HOME=../lib/src/portaudio
+
+# static libraries
+LIBGIG_A=../lib/windows/libgig.a
+LIBPORTAUDIO_A=../lib/windows/libportaudio.dll.a
+
+
+
+# the rest should be ok
+
+INCLUDES=-Isrc/ -I$(LIBGIG_HOME) -I$(PORTAUDIO_HOME)/include/ $(shell wx-config --cxxflags) -D__WINDOWS_MM__ 
+LIBS = $(shell wx-config --libs)  $(LIBGIG_A) $(LIBPORTAUDIO_A)
+
+SOURCES := $(wildcard src/*.cpp)
+OBJECTS=$(SOURCES:.cpp=.o)
+
+all: $(OBJECTS)
+#	rem $(OBJECTS)
+	g++ $(OBJECTS) -o Capture $(LIBS)
+
+## builds the object files out of the cpp files ##
+%.o: %.cpp
+	g++ $(INCLUDES) -g -c $+ -o $@
+	
+clean:
+	DEL $(OBJECTS)
+	

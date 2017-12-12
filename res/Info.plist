@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Capture</string>
+	<key>CFBundleGetInfoString</key>
+	<string>Capture</string>
+	<key>CFBundleIconFile</key>
+	<string>wxmac.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>uk.co.wikid.Capture</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLongVersionString</key>
+	<string>2.8.3, (c) 2007 wxWidgets</string>
+	<key>CFBundleName</key>
+	<string>Capture</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.8.3</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>2.8.3</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>LSRequiresCarbon</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
+	
+	
+	
+	<key>CFBundleDocumentTypes</key> <array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+                                <!-- Here goes the file formats your app can read -->
+				<string>'dls'</string>
+				<string>'gig'</string>
+			</array>
+			<!--<key>CFBundleTypeIconFile</key>      <string>'icon_for_your_documents.icns'</string>-->
+			<key>CFBundleTypeName</key>          <string>'Sampler presets'</string>
+			<key>CFBundleTypeRole</key>          <string>Editor</string>
+			<key>LSIsAppleDefaultForType</key>   <true/>
+			<key>LSTypeIsPackage</key>           <false/>
+		</dict>
+		
+	</array>
+	
+	
+	
+	
+</dict>
+</plist>
